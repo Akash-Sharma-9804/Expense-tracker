@@ -1,0 +1,61 @@
+const state= {
+    earnings: 0,
+    expense: 0,
+    net:0,
+    transactions: [
+     {
+        id:5,
+        category: "transport",
+        text: "car",
+        date: 1/5/12,
+        amount: 500,
+        type :"credit",
+
+    },
+    {
+        id:5,
+        category: "transport",
+        text: "car debit",
+        date: 1/5/12,
+        amount: 400,
+        type :"debit",
+
+    },
+
+    ],
+
+}
+
+
+const transactionFormEl = document.getElementById("transactionForm");
+
+const addTransaction = (e) => { 
+    e.preventDefault()
+    
+
+    const isEarn = e.submitter.id === "earnBtn" ? true : false;
+
+    const formData = new FormData(transactionFormEl)   
+    const tData={};
+
+    formData.forEach((value,key)=> {
+        tData[key] = value;
+    });
+
+    const { category,text,date, amount} = tData;
+    const transaction ={
+        id:Math.floor(Math.random() *  1000),
+        category: category,
+        text : text,
+        date:date,
+        amount : +amount,
+        type: isEarn ? "credit" : "debit"
+    } ;
+
+state.transactions.push(transaction)
+
+
+    console.log(state);
+}
+
+transactionFormEl.addEventListener("submit", addTransaction);
