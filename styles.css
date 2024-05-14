@@ -19,17 +19,21 @@ html {
 body {
   background-color: var(--primary);
 }
+
 .container{
     display: grid;
     place-items: center;
-    height: 100vh;
+    height: 100%;
+   
 }
+
 .box{
-    background-color: whitesmoke;
-width: 500px;
+    width: 500px;
 height: auto;
 padding: 20px;
 background-color: var(--primary-dark);
+backdrop-filter: blur(10px);
+
 color: white;
 }
 p{
@@ -47,7 +51,7 @@ h3{
     font-weight: 400;
     font-size: 20px;
 }
-.box_upper,
+
 .balance{
     display: flex;
     flex-direction: column;
@@ -93,28 +97,22 @@ h3{
     gap: 10px;
     height: 400px;
     overflow: auto;
-    /* width: 470px; */
     scrollbar-width: none;
     scroll-behavior: smooth;
 }
 .transaction{
-    display: flex;
-   
+    display: flex; 
     background-color: white;
     color: black;
 }
 .transaction .left {
     padding: 10px;
-  
+   
 }
  table tr td{
   width: 100vw;
 
  }
- .desc_row{
-  width: 200px;
- }
- 
 
 .status{
 background-color: var(--green);
@@ -137,16 +135,12 @@ color: white;
     margin-top: 10px;
 }
 
-.transaction_form {
-    /* margin-top: 5px; */
+.transaction_form { 
     background-color: white;
-    /* position: absolute; */
-    /* bottom: 0;
-    left: 0; */
     width: 100%;
     color: black;
     padding: 20px;
-    /* border-radius: 20px; */
+  
   }
    
   .cat_date{
@@ -173,6 +167,7 @@ color: white;
     border: 1px solid black;
   width: 100%;
   }
+
   form input:focus-visible {
     outline: 1px solid var(--primary-dark);
     border: 1px solid var(--primary-dark);
@@ -203,11 +198,7 @@ color: white;
     background-color: var(--red);
   }
   
-  @media (max-width: 500px) {
-    .box {
-      width: 95%;
-    }
-  }
+
 
 #category{
     padding: 10px;
@@ -223,6 +214,7 @@ img{
   width: 25px;
   height: 25px;
 }
+
 
 
 
