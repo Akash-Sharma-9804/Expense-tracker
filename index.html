@@ -13,13 +13,15 @@
       <div class="box">
         <section class="box_upper">
           <h1>Expense Tracker</h1>
+         <!-------------------------- Balance Section   ------------------------------->
+
           <div class="balance">
             <h3>Your Balance</h3>
             <h2 id="netAmount">₹0</h2>
             
           </div>
         </section>
-        <!-- Income / Expense Section -->
+        <!--------------------------------- Income / Expense Section ----------------------------->
         <section class="box_bottom">
           <div class="income">
             <h3>Income</h3>
@@ -39,6 +41,7 @@
             <div class="inputs">
               <div class="cat_date">
                 <div class="form_control">
+                  <!-------------------------- Add Category Section   ------------------------------->
                     <label for="category">Category</label>
                     <select id="category">
                       <option value="">Select an option</option>
@@ -50,12 +53,16 @@
                       <option value="Rent">Rent</option>
                     </select>
                   </div>
-            
+                  <!-------------------------- Add Date Section   ------------------------------->
+
               <div class="form_control">
                 <label for="date">Date</label>
                 <input type="date" name="date" id="date" />
               </div>
             </div>
+
+                  <!-------------------------- Add Description Section   ------------------------------->
+
               <div class="form_control">
                 <label for="Desc">Description</label>
                 <input
@@ -64,6 +71,8 @@
                   name="text"
                   id="description" />
               </div>
+                   <!-------------------------- Add Amount Section   ------------------------------->
+
               <div class="form_control">
                 <label for="amount">Amount</label>
                 <input
@@ -73,6 +82,8 @@
                   id="amount" />
               </div>
             </div>
+
+                   <!--------------------------  Button Section   ------------------------------->
 
             <div class="buttons_container">
               <button type="submit" id="earnBtn">
@@ -87,12 +98,12 @@
           </form>
         </section>
         <!-------------------------------- Transaction Form Ends-------------------------------------------------------------->
-               <!-------------------------------- Transaction list starts-------------------------------------------------------------->
+               <!------------------------- Transaction list starts-------------------------------------------------------------->
 
         <div class="transaction_container">
           <div class="cat_date">
            <h3>Transaction</h3>
-            <!-- <label for="category">Category</label> -->
+            
            <select id="category_select">
             <option value="All">All</option>
             <option value="Food">Food</option>
@@ -105,7 +116,11 @@
             </select>
             </div>
           <hr />
+
+          <!----------------- Treansaction List Display List Of Transactions ---------------------------------------->
           <div class="transactions">
+          <!-------------------------- 1st Transaction Starts  ------------------------------->
+
             <div class="transaction">
               <div class="left">
                 <table>
@@ -125,6 +140,9 @@
 
               <div class="status credit">C</div>
             </div>
+
+             <!-------------------------- 2nd Transaction Starts  ------------------------------->
+ 
             <div class="transaction">
               <div class="left">
                 <table>
