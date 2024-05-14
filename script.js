@@ -120,13 +120,15 @@ const addTransaction = (e) => {
   const amountElement = document.getElementById("amount");
   if (!dateElement.value){
     alert("Select Date ");
+    return;
   }
     if(!categoryElement.value){
       alert("Select Category");
+      return;
      }
-      if(!descriptionElement.value)
-     {
+      if(!descriptionElement.value){
       alert("Enter Description");
+        return;
      }
      if( !amountElement.value) {
     alert("Enter amount");
