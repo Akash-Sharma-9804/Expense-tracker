@@ -13,28 +13,22 @@ const state = {
     },
   ],
 };
-// 
 
 
-
-
-
-// 
 const transactionFormEl = document.getElementById("transactionForm");
-
-
+//////////////------------------    Filter Transaction       ----------------------//////////
 const transactionCategory = document.getElementById("category_select");
 transactionCategory.addEventListener("change", function filterValues() {
   renderTransactions();
 });
+///////----------------------     Render Transaction     ------------------------//////////
 
 const renderTransactions = () => {
-
   const transactionContainerEl = document.querySelector(".transactions");
   const netAmountEl = document.getElementById("netAmount");
   const earningEl = document.getElementById("earning");
   const expenseEl = document.getElementById("expense");
-  // const dateEl = document.getElementById("date");
+ 
   const category = document.getElementById("category");
 
   const transactions = state.transactions;
@@ -47,9 +41,12 @@ const renderTransactions = () => {
   const transactionCategory = document.getElementById("category_select");
   const transactionCategoryValue = transactionCategory.value;
 
-  const filteredTransactions = transactionCategoryValue === "All" ? state.transactions : state.transactions.filter((transaction) => {
-    return transaction?.category === transactionCategoryValue;
-  })
+  const filteredTransactions =
+    transactionCategoryValue === "All"
+      ? state.transactions
+      : state.transactions.filter((transaction) => {
+          return transaction?.category === transactionCategoryValue;
+        });
 
   filteredTransactions.forEach((transaction, index) => {
     const { id, category, text, date, amount, type } = transaction;
@@ -72,8 +69,9 @@ const renderTransactions = () => {
                     </tr>
                 </table>
           </div>
-           <div class="status ${isCredit ? "credit" : "debit"}">${isCredit ? "C" : "D"
-      }</div>
+           <div class="status ${isCredit ? "credit" : "debit"}">${
+      isCredit ? "C" : "D"
+    }</div>
     </div>`;
 
     earning += isCredit ? amount : 0;
@@ -82,13 +80,13 @@ const renderTransactions = () => {
 
     transactionContainerEl.insertAdjacentHTML("afterbegin", transactionEl);
 
-
     const deleteButton = document.getElementById(`delete_${index}`);
-    deleteButton.addEventListener('click', function () {
+    deleteButton.addEventListener("click", function () {
       deleteTransaction(index);
-    })
+    });
   });
 
+  ///////-----------------     Delete Transaction    -----------------//////////
 
   function deleteTransaction(index) {
     const updatedTransactions = [...state.transactions];
@@ -96,19 +94,18 @@ const renderTransactions = () => {
     updatedTransactions.splice(index, 1);
     state.transactions = updatedTransactions;
     renderTransactions();
+   
   }
 
-
-
-
-  // Update total amounts
+  ////////--------------------  Update total amounts  ---------------/////////////
   netAmountEl.innerHTML = `₹ ${net}`;
   earningEl.innerHTML = `₹ ${earning}`;
   expenseEl.innerHTML = `₹ ${expense}`;
 };
 
-
 const categoryEl = category.value;
+
+///////-----------------------     Add Transaction      -------------------//////////
 
 
 const addTransaction = (e) => {
@@ -118,19 +115,19 @@ const addTransaction = (e) => {
   const categoryElement = document.getElementById("category");
   const descriptionElement = document.getElementById("description");
   const amountElement = document.getElementById("amount");
-  if (!dateElement.value){
+  if (!dateElement.value) {
     alert("Select Date ");
     return;
   }
-    if(!categoryElement.value){
-      alert("Select Category");
-      return;
-     }
-      if(!descriptionElement.value){
-      alert("Enter Description");
-        return;
-     }
-     if( !amountElement.value) {
+  if (!categoryElement.value) {
+    alert("Select Category");
+    return;
+  }
+  if (!descriptionElement.value) {
+    alert("Enter Description");
+    return;
+  }
+  if (!amountElement.value) {
     alert("Enter amount");
     return;
   }
@@ -153,19 +150,16 @@ const addTransaction = (e) => {
     type: isEarn ? "credit" : "debit",
   };
 
-
-
-
-
   state.transactions.push(transaction);
   renderTransactions();
 
   transactionFormEl.reset();
   console.log({ state });
+  
 };
+
+
+
 renderTransactions();
-
-
-
 
 transactionFormEl.addEventListener("submit", addTransaction);
